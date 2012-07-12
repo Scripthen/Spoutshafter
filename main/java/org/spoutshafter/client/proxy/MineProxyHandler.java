@@ -370,7 +370,9 @@ public class MineProxyHandler extends Thread {
 	public static byte[] getRequest(String url) {
 		try {
 			HttpURLConnection c = (HttpURLConnection) new URL(url).openConnection(Proxy.NO_PROXY);
-			c.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.162 Safari/535.19");
+			// People under estimate Linux. Without it, this world will be one whole virus.
+			// Popularity boost ;)
+			c.setRequestProperty("User-Agent", "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:13.0) Gecko/20100101 Firefox/13.0.1");
 			int code = c.getResponseCode();
 			System.out.println("Response: " + code);
 			if(code / 100 == 4) {
